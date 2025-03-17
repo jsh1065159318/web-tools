@@ -1,7 +1,7 @@
 # Web工具合集
 
 ## 项目介绍
-这是一个简洁清新的Web工具合集网页应用，旨在提供各种常用的在线工具，包括文本处理、数字计算、图片编辑和单位转换等功能。该应用使用Vue.js框架开发，界面简洁易用，支持夜间模式，适合日常工作和学习中的各种小工具需求。
+这是一个简洁清新的Web工具合集网页应用，旨在提供各种常用的在线工具，包括文本处理、数字计算、图片编辑和单位转换等功能。该应用使用Vue.js框架开发，界面简洁易用，支持夜间模式，适合日常工作和学习中的各种小工具需求。（持续编写优化中）
 
 ## 功能概述
 
@@ -210,3 +210,81 @@ web-tools/
 - 实现工具使用历史记录
 - 添加数据导入/导出功能
 - 添加用户设置页面，提供更多自定义选项
+
+## 项目运行和构建指南
+
+### 环境要求
+- Node.js 16.0+ 
+- npm 7.0+ 或 yarn 1.22+
+
+### 安装依赖
+```bash
+# 使用 npm 安装依赖
+npm install
+
+# 或使用 yarn 安装依赖
+yarn install
+```
+
+### 开发环境运行
+```bash
+# 启动开发服务器
+npm run dev
+
+# 或使用 yarn
+yarn dev
+```
+启动后，在浏览器中访问 `http://localhost:5173` 即可查看应用。
+
+### 生产环境构建
+```bash
+# 构建生产版本
+npm run build
+
+# 或使用 yarn
+yarn build
+```
+构建完成后，生成的文件将位于 `dist` 目录中。
+
+### 预览构建结果
+```bash
+# 本地预览构建结果
+npm run preview
+
+# 或使用 yarn
+yarn preview
+```
+
+### 部署建议
+项目构建后生成的是静态文件，可以部署在任何静态文件服务器上：
+
+1. **传统Web服务器**：
+   - Nginx
+   - Apache
+   - IIS
+
+2. **静态网站托管服务**：
+   - GitHub Pages
+   - Netlify
+   - Vercel
+   - AWS S3 + CloudFront
+   - Firebase Hosting
+
+3. **容器化部署**：
+   可以使用以下Dockerfile作为起点：
+   ```dockerfile
+   FROM nginx:alpine
+   COPY dist /usr/share/nginx/html
+   EXPOSE 80
+   CMD ["nginx", "-g", "daemon off;"]
+   ```
+
+4. **CI/CD集成**：
+   - 可以配置GitHub Actions或GitLab CI进行自动构建和部署
+   - 推荐在合并到主分支时触发自动构建和部署流程
+
+### 性能优化建议
+- 确保生产环境的构建已启用代码压缩和分割
+- 使用CDN加速静态资源
+- 考虑使用Service Worker进行资源缓存
+- 对于高流量站点，可以启用HTTP/2或HTTP/3
