@@ -1,0 +1,135 @@
+/* 移除默认样式中可能导致布局问题的部分 */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* 覆盖Vite默认的亮色/暗色模式设置 */
+:root {
+  color-scheme: light;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* 更全面的夜间模式样式 */
+body.dark-mode {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+body.light-mode {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* 确保所有内容区域都正确应用主题样式 */
+body.dark-mode .app,
+body.dark-mode .main-content,
+body.dark-mode #app {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* 针对工具详情区域的样式 */
+body.dark-mode .el-main,
+body.dark-mode .el-container {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* 确保工具卡片在夜间模式下呈现正确 */
+body.dark-mode .tool-card {
+  background-color: var(--card-bg) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+/* 工具内容区域 */
+body.dark-mode .tool-content {
+  background-color: var(--secondary-background) !important;
+  color: var(--text-color) !important;
+}
+
+/* 输入框、按钮等表单元素样式 */
+body.dark-mode .el-input__inner,
+body.dark-mode .el-textarea__inner {
+  background-color: #2c2c2c !important;
+  border-color: #444 !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .el-button {
+  border-color: #444 !important;
+}
+
+body.dark-mode .el-button--primary {
+  background-color: var(--primary-color) !important;
+}
+
+/* 侧边栏菜单 */
+body.dark-mode .el-menu {
+  background-color: var(--secondary-background) !important;
+  border-right-color: var(--border-color) !important;
+}
+
+body.dark-mode .el-menu-item {
+  color: var(--text-color-light) !important;
+}
+
+body.dark-mode .el-menu-item.is-active {
+  color: var(--primary-color) !important;
+  background-color: rgba(66, 185, 131, 0.1) !important;
+}
+
+body.dark-mode .el-menu-item:hover {
+  background-color: #292929 !important;
+}
+
+/* 工具页面侧边栏 */
+body.dark-mode .number-tools .sidebar,
+body.dark-mode .text-tools .sidebar,
+body.dark-mode .image-tools .sidebar,
+body.dark-mode .unit-converter .sidebar {
+  background-color: var(--secondary-background) !important;
+  border-right-color: var(--border-color) !important;
+}
+
+body.dark-mode .tool-menu {
+  background-color: var(--secondary-background) !important;
+}
+
+/* 确保选中状态的菜单项样式 */
+body.dark-mode .el-menu-item.is-active {
+  color: var(--primary-color) !important;
+}
+
+/* 高亮当前活动的工具 */
+body.dark-mode .sidebar .el-menu-item.is-active {
+  background-color: #2a2a2a !important;
+  border-left: 3px solid var(--primary-color) !important;
+}
+
+body.light-mode .sidebar .el-menu-item.is-active {
+  background-color: #f0f0f0 !important;
+  border-left: 3px solid var(--primary-color) !important;
+}
+
+/* 确保Footer组件在夜间模式下正确显示 */
+body.dark-mode .footer {
+  background-color: var(--secondary-background) !important;
+}
+
+body.dark-mode .footer .copyright {
+  color: var(--text-color-light) !important;
+}
+
+/* 增强菜单项悬停效果 */
+body.dark-mode .el-menu-item:hover {
+  background-color: #292929 !important;
+}
+
+body.light-mode .el-menu-item:hover {
+  background-color: #f7f7f7 !important;
+}
